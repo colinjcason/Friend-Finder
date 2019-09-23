@@ -40,9 +40,10 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 1</h5>
+                        <p>You are most motivated by succcess.</p>
                     </label>
                     <select class="form-control" id="q1">
                         <option>1 (Strongly Disagree)</option>
@@ -56,9 +57,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 2</h5>
+                        <p>At social gatherings you feel alienated or out of place.</p>
                     </label>
                     <select class="form-control" id="q2">
                         <option>1 (Strongly Disagree)</option>
@@ -72,9 +74,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 3</h5>
+                        <p>You make friends easily.</p>
                     </label>
                     <select class="form-control" id="q3">
                         <option>1 (Strongly Disagree)</option>
@@ -88,9 +91,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 4</h5>
+                        <p>You generally try to follow the rules.</p>
                     </label>
                     <select class="form-control" id="q4">
                         <option>1 (Strongly Disagree)</option>
@@ -104,9 +108,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 5</h5>
+                        <p>People describe you as likeable.</p>
                     </label>
                     <select class="form-control" id="q5">
                         <option>1 (Strongly Disagree)</option>
@@ -120,9 +125,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 6</h5>
+                        <p>You find it easy to stay relaxed and focused uder pressure.</p>
                     </label>
                     <select class="form-control" id="q6">
                         <option>1 (Strongly Disagree)</option>
@@ -136,9 +142,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 7</h5>
+                        <p>It is often difficult for you to relate to other people’s feelings.</p>
                     </label>
                     <select class="form-control" id="q7">
                         <option>1 (Strongly Disagree)</option>
@@ -152,9 +159,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 8</h5>
+                        <p>You feel more energetic after spending time with a group of people.</p>
                     </label>
                     <select class="form-control" id="q8">
                         <option>1 (Strongly Disagree)</option>
@@ -168,9 +176,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 9</h5>
+                        <p>Your mind is always buzzing with unexplored ideas and plans.</p>
                     </label>
                     <select class="form-control" id="q9">
                         <option>1 (Strongly Disagree)</option>
@@ -184,9 +193,10 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <label for="exampleFormControlSelect1">
                         <h5>Question 10</h5>
+                        <p>You generally get annoyed with people.</p>
                     </label>
                     <select class="form-control" id="q10">
                         <option>1 (Strongly Disagree)</option>
@@ -219,10 +229,8 @@
               </div>
             </div>
           </div>
-
-
     
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -252,12 +260,10 @@
                         parseInt($("#q10").val())
                     ]
                 };
-                console.log(newFriend);
-
 
                 $.post("/api/friends", newFriend, function(data) {
-                    $(".modal-body").append(data.name);
-                    $(".modal-body").append(data.score);
+                    $(".modal-body").append($("<h2>").text(data.name));
+                    $(".modal-body").append($("<img>").attr("src", data.photo));
                 });
 
             });
