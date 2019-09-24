@@ -251,11 +251,10 @@
 
             $("#submit").on("click", function (event) {
                 event.preventDefault();
-                
-                $("#modalCloseBtn").on("click", function() {
+
+                $(window).on("click", function () {
                     $(".modal-body").empty();
                 });
-
 
                 var newFriend = {
                     name: $("#name-input").val().trim(),
@@ -278,7 +277,6 @@
                     $(".modal-body").append($("<h2>").text(data.name));
                     $(".modal-body").append($("<img>").attr("src", data.photo));
                     $("#friendModal").modal("toggle");
-
                 });
 
             });
